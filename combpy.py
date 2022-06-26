@@ -1,17 +1,20 @@
+import json
 import hashlib
 from itertools import chain, permutations
 from optparse import OptionParser
 
+json_parser = False
+
 parser = OptionParser()
 parser.add_option("-t", "--token", help="Your hash token", dest="token")
-parser.add_option("-a", "--algorithem", choices=list(hashlib.algorithms_available), help='The name of the hash algorithm to use', dest="algorithem")
+parser.add_option("-a", "--algorithem", choices=list(hashlib.algorithms_available), help='The name of the hash algorithm to use', dest="algorithem", default='md5')
 parser.add_option("-w", "--words", help="Wordlist separated by a comma without spaces", dest="words")
 parser.add_option("-s", "--separators", help="Your separators, separated by a comma (If not provided all separators will be used)", dest="separators")
 
 (options, args) = parser.parse_args()
 
 hashtoken =  options.token.lower()
-wordlist = options.words.split(",")
+wordlist = set(options.words.split(","))
 separators = list()
 list_combinations = list()
 

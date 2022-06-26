@@ -1,0 +1,15 @@
+{
+    "userId": 5798,
+    "organizationTeamId": 2311,
+    "roleId": 1,
+    "authenticatedModelTypeId": 6,
+    "userFirstName": "Kobi",
+    "userLastName": "Shtorz",
+    "userTokenGenerationTime": 1656253198171,
+    "userNotificationEnabled": true,
+    "userRegistrationSourceId": 2,
+    "organizationDomainPrefix":"vicarius-kobipt",
+    "organizationName":"vicarius-kobipt",
+    "organizationId":2159,
+    "externalReferenceExternalId":"kobi.shtorz@2bsecure.co.il"
+}
