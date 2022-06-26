@@ -1,7 +1,7 @@
 # Combpy
 A lightweight tool for cracking hashes with known values
 
-https://user-images.githubusercontent.com/20946532/175820630-e78dc0b7-2370-48b0-b0fe-e7352151179c.mp4
+![ezgif-1-0b6c1902a8](https://user-images.githubusercontent.com/20946532/175826400-afb84e97-29bc-4d9c-ae0f-ea873f266f8b.gif)
 
 
 ## Supported algorithms:
