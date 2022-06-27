@@ -3,8 +3,6 @@ import hashlib
 from itertools import chain, permutations
 from optparse import OptionParser
 
-json_parser = False
-
 parser = OptionParser()
 parser.add_option("-t", "--token", help="Your hash token", dest="token")
 parser.add_option("-a", "--algorithem", choices=list(hashlib.algorithms_available), help='The name of the hash algorithm to use', dest="algorithem", default='md5')
@@ -22,7 +20,6 @@ if options.separators is None:
      separators = ('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '.', ',', '/', '\/', '~', ';', '`', '>', '<', '<>', '|', '||', ':', '::', ':::', '?')
 else: 
      separators = options.separators.split(',')
-     print(separators)
 
 for n in range(len(wordlist) + 1):
     list_combinations = list(chain.from_iterable([permutations(wordlist, x) for x in range(len(wordlist)+1)]))
@@ -31,9 +28,8 @@ def build(separator, combination):
     return separator.join(combination)
 
 if __name__ == "__main__":
-    success = 0
+    success = None
     counter = len(list_combinations) * len(separators) 
-    cracked = ''
     for combination in list_combinations:
         for sep in separators:
             row = build(sep, combination)
@@ -41,11 +37,11 @@ if __name__ == "__main__":
             h.update(row.encode('utf-8'))
             checksum = h.hexdigest()
             if(hashtoken == checksum):
-                success = 1
-                cracked = row
+                success = row
+                break
             print(row, checksum)
-    if(success):
+    if success is not None:
         print('\n# Hash Found!   ', hashtoken)
-        print('# From String:  ', cracked)
+        print('# From String:  ', success)
     else: 
-        print('0 hashes were found in ' + str(counter) +' attempts')
+        print('\n0 hashes were found in ' + str(counter) +' attempts')
