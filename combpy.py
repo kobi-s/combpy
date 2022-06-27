@@ -1,4 +1,3 @@
-import json
 import hashlib
 from itertools import chain, permutations
 from optparse import OptionParser
